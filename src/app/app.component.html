@@ -1,12 +1,3 @@
-<h2>Descobertas</h2>
-<input type="text" [(ngModel)]="novo" id="nome"><br>
-<button (click)="add()">Adicionar</button>
-<h2>Todos</h2>
-<app-pokelista (pokepegou)="pokeselecionado($event)"></app-pokelista>
-
-<h2>Capturei</h2>
-<app-pokelista (pokesoltou)="soltei($event)"></app-pokelista>
-
 <a routerLink="/um">Um</a> | <a routerLink="/dois">Dois</a>
-
+<hr>
 <router-outlet></router-outlet>

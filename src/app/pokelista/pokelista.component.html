@@ -1,7 +1,7 @@
 <ul>
     <li *ngFor="let pokemon of pokemons(); let index = index">
         {{pokemon.id}} - {{pokemon.name}}
-        <button (click)="pegou($event, index)">Peguei</button>
+        <button (click)="pegou($event, pokemon.id)">Peguei</button>
         <button (click)="soltou($event, index)">Soltei</button>
     </li>
 </ul>

@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./pokelista.component.css'],
 })
 export class PokelistaComponent {
+  @Input() capturados: boolean = false;
+
   @Output() pokepegou: EventEmitter<{ id: number }> = new EventEmitter<{
     id: number;
   }>();
@@ -17,14 +19,11 @@ export class PokelistaComponent {
     id: number;
   }>();
 
-  constructor(private lista: ListaService, private api: HttpClient) {
-    this.api
-      .get<Pokemon>('https://pokeapi.co/api/v2/pokemon/1/')
-      .subscribe((poke: Pokemon) => this.lista.add(poke));
-  }
+  constructor(private lista: ListaService) {}
 
   pokemons(): Pokemon[] {
-    return this.lista.get_list();
+    if (!this.capturados) return this.lista.get_list();
+    return this.lista.get_capturado();
   }
 
   pegou(evt: Event, id: number) {
