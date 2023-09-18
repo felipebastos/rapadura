@@ -1,7 +1,7 @@
-<ul>
-    <li *ngFor="let pokemon of pokemons(); let index = index">
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let pokemon of pokemons(); let index = index">
         {{pokemon.id}} - {{pokemon.name}}
-        <button (click)="pegou($event, pokemon.id)">Peguei</button>
-        <button (click)="soltou($event, index)">Soltei</button>
+        <button class="btn btn-primary" (click)="pegou($event, pokemon.id)">Peguei</button>
+        <button class="btn btn-secondary" (click)="soltou($event, index)">Soltei</button>
     </li>
 </ul>
