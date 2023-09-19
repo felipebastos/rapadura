@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { ListaService } from '../pokelista/lista.service';
+import { Store } from '@ngrx/store';
+import { pokemonCapturado } from '../store/pokemon.actions';
+import { Observable } from 'rxjs';
+import { selectPokemonId } from '../store/pokemon.selectors';
 
 @Component({
   selector: 'app-pagina1',
@@ -7,11 +11,11 @@ import { ListaService } from '../pokelista/lista.service';
   styleUrls: ['./pagina1.component.css'],
 })
 export class Pagina1Component {
-  ultimo: string = 'nunca selecionou';
+  ultimo$ = this.store.select(selectPokemonId);
 
-  constructor(private lista: ListaService) {}
+  constructor(private store: Store, private lista: ListaService) {}
   pegou(n: number) {
-    this.ultimo = `O último selecionado foi o de ID: ${n}`;
+    this.store.dispatch(pokemonCapturado({ id: n }));
     this.lista.capture(n);
   }
 }
