@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from './entities';
 import { HttpClient } from '@angular/common/http';
-import { Observable, mergeMap, range, scan } from 'rxjs';
+import { Observable, mergeMap, mergeScan, of, range, scan } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,13 +12,14 @@ export class ListaService {
   constructor(private api: HttpClient) {}
 
   load(): Observable<Pokemon[]> {
-    const numbers = range(1, 150);
+    const numbers = range(1, 10);
 
     return numbers.pipe(
       mergeMap((n) =>
         this.api.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${n}/`)
       ),
-      scan((lista: Pokemon[], curr: Pokemon) => [...lista, curr], [])
+      mergeScan((acc: Pokemon[], one) => of([...acc, one]), [])
+      //scan((lista: Pokemon[], curr: Pokemon) => [...lista, curr], [])
     );
   }
 

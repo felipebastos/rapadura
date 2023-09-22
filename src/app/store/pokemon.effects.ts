@@ -13,7 +13,6 @@ export class PokemonEffects {
       switchMap(() =>
         this.listaservice.load().pipe(
           map((pokemon) => {
-            console.log(pokemon);
             return loadPokemonSuccess({ pokemon: pokemon });
           })
         )
