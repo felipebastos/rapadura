@@ -1,12 +1,15 @@
 import { createFeatureSelector, createReducer, on } from '@ngrx/store';
-import { pokemonCapturado } from './pokemon.actions';
+import { loadPokemonSuccess, pokemonCapturado } from './pokemon.actions';
+import { Pokemon } from '../pokelista/entities';
 
 export interface State {
   pokemonID: number;
+  pokemon: Pokemon[];
 }
 
 export const initialState: State = {
   pokemonID: 0,
+  pokemon: [],
 };
 
 export const pokemonReducer = createReducer(
@@ -15,6 +18,12 @@ export const pokemonReducer = createReducer(
     return {
       ...state,
       pokemonID: action.id,
+    };
+  }),
+  on(loadPokemonSuccess, (state, action) => {
+    return {
+      ...state,
+      pokemon: action.pokemon,
     };
   })
 );

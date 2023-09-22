@@ -11,6 +11,8 @@ import { Pagina2Component } from './pagina2/pagina2.component';
 import { StoreModule } from '@ngrx/store';
 import { pokemonReducer } from './store/pokemon.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { PokemonEffects } from './store/pokemon.effects';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     StoreModule.forRoot({ pokemon: pokemonReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([PokemonEffects]),
   ],
   providers: [ListaService],
   bootstrap: [AppComponent],

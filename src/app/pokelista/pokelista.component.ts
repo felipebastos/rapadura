@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Pokemon } from './entities';
-import { ListaService } from './lista.service';
-import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { selectPokemon } from '../store/pokemon.selectors';
 
 @Component({
   selector: 'app-pokelista',
@@ -19,12 +18,9 @@ export class PokelistaComponent {
     id: number;
   }>();
 
-  constructor(private lista: ListaService) {}
+  lista$ = this.store.select(selectPokemon);
 
-  pokemons(): Pokemon[] {
-    if (!this.capturados) return this.lista.get_list();
-    return this.lista.get_capturado();
-  }
+  constructor(private store: Store) {}
 
   pegou(evt: Event, id: number) {
     this.pokepegou.emit({ id: id });

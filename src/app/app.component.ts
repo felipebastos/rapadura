@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Pokemon } from './pokelista/entities';
-import { ListaService } from './pokelista/lista.service';
+import { Store } from '@ngrx/store';
+import { loadPokemon } from './store/pokemon.actions';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +12,15 @@ export class AppComponent {
 
   novo: string = '';
 
-  constructor(private lista: ListaService) {}
+  constructor(private store: Store) {}
 
   pokeselecionado(msg: { id: number }) {}
 
   soltei(msg: { id: number }) {}
 
   add() {}
+
+  loadPokemon() {
+    this.store.dispatch(loadPokemon());
+  }
 }

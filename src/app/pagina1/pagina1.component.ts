@@ -13,9 +13,8 @@ import { selectPokemonId } from '../store/pokemon.selectors';
 export class Pagina1Component {
   ultimo$ = this.store.select(selectPokemonId);
 
-  constructor(private store: Store, private lista: ListaService) {}
+  constructor(private store: Store) {}
   pegou(n: number) {
     this.store.dispatch(pokemonCapturado({ id: n }));
-    this.lista.capture(n);
   }
 }
