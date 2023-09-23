@@ -11,10 +11,13 @@ export const selectLoaded = createSelector(
   (state) => state.loaded
 );
 
-export const selectPokemon = createSelector(
-  selectStore,
-  (state) => state.pokemon
-);
+export const selectPokemon = createSelector(selectStore, (state) => {
+  const start = state.pokePage * state.pokePageSize;
+
+  const end = start + state.pokePageSize;
+
+  return state.pokemon.slice(start, end);
+});
 
 export const selectCapturados = createSelector(
   selectStore,
@@ -31,4 +34,19 @@ export const selectShowModal = createSelector(
 export const selectDetail = createSelector(
   selectStore,
   (state) => state.pokemonDetail
+);
+
+export const selectPokeSize = createSelector(
+  selectStore,
+  (state) => state.pokemon.length
+);
+
+export const selectPokePage = createSelector(
+  selectStore,
+  (state) => state.pokePage
+);
+
+export const selectPokePageSize = createSelector(
+  selectStore,
+  (state) => state.pokePageSize
 );

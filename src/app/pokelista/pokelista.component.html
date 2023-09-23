@@ -2,3 +2,6 @@
     <mat-list-item role="listitem" *ngFor="let pokemon of (lista$ | async); let index = index"
         (click)="loadDetail(pokemon.url)">{{pokemon.name}}</mat-list-item>
 </mat-list>
+<mat-paginator (page)="mudaPagina($event)" [length]="size$ | async" [pageIndex]="page$ | async"
+    [pageSize]="pageSize$ | async" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página">
+</mat-paginator>

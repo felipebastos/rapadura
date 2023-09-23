@@ -26,3 +26,8 @@ export const loadPokemonDetailSuccess = createAction(
   '[POKEMON] Carrega detalhes de um pokemon específico',
   props<{ detail: Pokemon }>()
 );
+
+export const changePage = createAction(
+  '[POKEMON] Muda página exibida',
+  props<{ index: number; size: number }>()
+);

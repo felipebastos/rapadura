@@ -1,5 +1,6 @@
 import { createFeatureSelector, createReducer, on } from '@ngrx/store';
 import {
+  changePage,
   loadPokemonDetailSuccess,
   loadPokemonSuccess,
   pokemonCapturado,
@@ -16,6 +17,8 @@ export interface State {
   showDetail: boolean;
   capturados: PokemonRoot[];
   error: { show: boolean; msg: string };
+  pokePage: number;
+  pokePageSize: number;
 }
 
 export const initialState: State = {
@@ -26,6 +29,8 @@ export const initialState: State = {
   pokemonDetail: { id: 0, name: 'Não carregou nenhum' },
   showDetail: false,
   error: { show: false, msg: '' },
+  pokePage: 0,
+  pokePageSize: 10,
 };
 
 export const pokemonReducer = createReducer(
@@ -52,6 +57,13 @@ export const pokemonReducer = createReducer(
       ...state,
       pokemonDetail: action.detail,
       showDetail: true,
+    };
+  }),
+  on(changePage, (state, action) => {
+    return {
+      ...state,
+      pokePage: action.index,
+      pokePageSize: action.size,
     };
   })
 );
