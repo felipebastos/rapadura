@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadPokemon } from './store/pokemon.actions';
+import { loadPokemon, pokemonCapturado } from '../shared/store/pokemon.actions';
+import { Observable } from 'rxjs';
+import {
+  selectDetail,
+  selectLoaded,
+  selectShowModal,
+} from 'src/shared/store/pokemon.selectors';
+import { Pokemon } from 'src/shared/models/pokemon';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +19,11 @@ export class AppComponent {
 
   novo: string = '';
 
-  constructor(private store: Store) {}
+  loaded: Observable<boolean> = new Observable<boolean>();
 
-  pokeselecionado(msg: { id: number }) {}
-
-  soltei(msg: { id: number }) {}
-
-  add() {}
+  constructor(private store: Store) {
+    this.loaded = this.store.select(selectLoaded);
+  }
 
   loadPokemon() {
     this.store.dispatch(loadPokemon());

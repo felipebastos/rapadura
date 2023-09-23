@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Detalhes do Pokemon</h2>
+<mat-dialog-content class="mat-typografy">
+
+    ID: {{(detail | async)?.id}} <br>
+    Nome: {{(detail | async)?.name}} <br>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial *ngIf="detail | async as d"
+        (click)="capturar(d)">Capturar</button>
+</mat-dialog-actions>

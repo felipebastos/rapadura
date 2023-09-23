@@ -4,15 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokelistaComponent } from './pokelista/pokelista.component';
-import { ListaService } from './pokelista/lista.service';
+import { PokemonService } from '../shared/services/pokemon.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Pagina1Component } from './pagina1/pagina1.component';
 import { Pagina2Component } from './pagina2/pagina2.component';
 import { StoreModule } from '@ngrx/store';
-import { pokemonReducer } from './store/pokemon.reducer';
+import { pokemonReducer } from '../shared/store/pokemon.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { PokemonEffects } from './store/pokemon.effects';
+import { PokemonEffects } from '../shared/store/pokemon.effects';
+import { materialComponents } from './material-modules';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PokedialogComponent } from './pokedialog/pokedialog.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { PokemonEffects } from './store/pokemon.effects';
     PokelistaComponent,
     Pagina1Component,
     Pagina2Component,
+    PokedialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +33,10 @@ import { PokemonEffects } from './store/pokemon.effects';
     StoreModule.forRoot({ pokemon: pokemonReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([PokemonEffects]),
+    ...materialComponents,
+    BrowserAnimationsModule,
   ],
-  providers: [ListaService],
+  providers: [PokemonService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
