@@ -1,15 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PokePage, Pokemon } from '../models/pokemon';
 import { HttpClient } from '@angular/common/http';
-import {
-  Observable,
-  concatMap,
-  map,
-  mergeScan,
-  of,
-  range,
-  switchMap,
-} from 'rxjs';
+import { Observable, concatMap, range, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

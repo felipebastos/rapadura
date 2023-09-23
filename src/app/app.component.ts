@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadPokemon, pokemonCapturado } from '../shared/store/pokemon.actions';
+import { loadPokemon } from '../shared/store/pokemon.actions';
 import { Observable } from 'rxjs';
-import {
-  selectDetail,
-  selectLoaded,
-  selectShowModal,
-} from 'src/shared/store/pokemon.selectors';
-import { Pokemon } from 'src/shared/models/pokemon';
+import { selectLoaded } from 'src/shared/store/pokemon.selectors';
 
 @Component({
   selector: 'app-root',

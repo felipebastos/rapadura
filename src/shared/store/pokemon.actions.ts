@@ -31,3 +31,8 @@ export const changePage = createAction(
   '[POKEMON] Muda página exibida',
   props<{ index: number; size: number }>()
 );
+
+export const changeCapPage = createAction(
+  '[POKEMON] Muda página exibida dos capturados',
+  props<{ index: number; size: number }>()
+);

@@ -1,0 +1,4 @@
+<h1>Lista de Pokemons</h1>
+<h2>{{ultimo$ | async}}</h2>
+<app-pokelista [size]="(size$ | async) || 0" [page]="(page$ | async) || 0"
+    [pageSize]="(pageSize$ | async) || 10"></app-pokelista>

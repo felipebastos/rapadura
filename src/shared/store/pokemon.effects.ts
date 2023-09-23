@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY, first, map, switchMap, tap, throttleTime } from 'rxjs';
+import { EMPTY, map, switchMap } from 'rxjs';
 import {
   loadPokemon,
   loadPokemonDetail,

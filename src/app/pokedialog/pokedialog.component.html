@@ -1,8 +1,10 @@
 <h2 mat-dialog-title>Detalhes do Pokemon</h2>
 <mat-dialog-content class="mat-typografy">
-
-    ID: {{(detail | async)?.id}} <br>
-    Nome: {{(detail | async)?.name}} <br>
+    <div class="flex">
+        <img src="{{(detail | async)?.sprites?.front_default}}" alt="">
+        <span>ID: {{(detail | async)?.id}}</span>
+        <span>Nome: {{(detail | async)?.name}}</span>
+    </div>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">

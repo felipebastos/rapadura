@@ -50,3 +50,18 @@ export const selectPokePageSize = createSelector(
   selectStore,
   (state) => state.pokePageSize
 );
+
+export const selectCapPage = createSelector(
+  selectStore,
+  (state) => state.capPage
+);
+
+export const selectCapPageSize = createSelector(
+  selectStore,
+  (state) => state.capSize
+);
+
+export const selectCapSize = createSelector(
+  selectStore,
+  (state) => state.capturados.length
+);

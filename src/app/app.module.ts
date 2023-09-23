@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { PokelistaComponent } from './pokelista/pokelista.component';
 import { PokemonService } from '../shared/services/pokemon.service';
 import { HttpClientModule } from '@angular/common/http';
-import { Pagina1Component } from './pagina1/pagina1.component';
-import { Pagina2Component } from './pagina2/pagina2.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { CapturadosComponent } from './capturados/capturados.component';
 import { StoreModule } from '@ngrx/store';
 import { pokemonReducer } from '../shared/store/pokemon.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -21,8 +21,8 @@ import { PokedialogComponent } from './pokedialog/pokedialog.component';
   declarations: [
     AppComponent,
     PokelistaComponent,
-    Pagina1Component,
-    Pagina2Component,
+    PokemonComponent,
+    CapturadosComponent,
     PokedialogComponent,
   ],
   imports: [

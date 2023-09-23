@@ -1,13 +1,12 @@
 import { createFeatureSelector, createReducer, on } from '@ngrx/store';
 import {
+  changeCapPage,
   changePage,
   loadPokemonDetailSuccess,
   loadPokemonSuccess,
   pokemonCapturado,
 } from './pokemon.actions';
 import { Pokemon, PokemonRoot } from '../../shared/models/pokemon';
-
-import * as _ from 'lodash';
 
 export interface State {
   pokemonID: number;
@@ -19,6 +18,8 @@ export interface State {
   error: { show: boolean; msg: string };
   pokePage: number;
   pokePageSize: number;
+  capPage: number;
+  capSize: number;
 }
 
 export const initialState: State = {
@@ -26,11 +27,17 @@ export const initialState: State = {
   loaded: false,
   pokemon: [],
   capturados: [],
-  pokemonDetail: { id: 0, name: 'Não carregou nenhum' },
+  pokemonDetail: {
+    id: 0,
+    name: 'Não carregou nenhum',
+    sprites: { front_default: '#' },
+  },
   showDetail: false,
   error: { show: false, msg: '' },
   pokePage: 0,
   pokePageSize: 10,
+  capPage: 0,
+  capSize: 10,
 };
 
 export const pokemonReducer = createReducer(
@@ -64,6 +71,13 @@ export const pokemonReducer = createReducer(
       ...state,
       pokePage: action.index,
       pokePageSize: action.size,
+    };
+  }),
+  on(changeCapPage, (state, action) => {
+    return {
+      ...state,
+      capPage: action.index,
+      capSize: action.size,
     };
   })
 );
