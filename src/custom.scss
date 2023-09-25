@@ -1,0 +1,69 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$poke-palette: (
+ 50: #f2f9e9,
+ 100: #def0c8,
+ 200: #c9e6a4,
+ 300: #B2DC7F,
+ 400: #a0d462,
+ 500: #90cc46,
+ 600: #81bc3e,
+ 700: #6ca834,
+ 800: #58932b,
+ 900: #35711b,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+   400: white,
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white,
+ )
+);
+
+$mon-palette: (
+ 50: #f0e9f9,
+ 100: #dac9f0,
+ 200: #c1a5e6,
+ 300: #a97fdc,
+ 400: #9662d3,
+ 500: #8345ca,
+ 600: #7a3fc3,
+ 700: #6d37ba,
+ 800: #6130b2,
+ 900: #4f24a4,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+   400: white,
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white,
+ )
+);
+
+$my-primary: mat.define-palette($poke-palette, 300);
+$my-accent: mat.define-palette($mon-palette, 200, 100, 400);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
+
+@include mat.core-theme($my-theme);
+
+@include mat.all-component-themes($my-theme);
