@@ -8,7 +8,7 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
     <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial *ngIf="detail | async as d"
         (click)="capturar(d)">Capturar</button>
 </mat-dialog-actions>

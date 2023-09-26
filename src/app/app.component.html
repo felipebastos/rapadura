@@ -1,8 +1,8 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
     <button mat-button routerLink="/pokemon" class="nav-link" routerLinkActive="active">Pokemon</button>
     <button mat-button routerLink="/capturados" class="nav-link" routerLinkActive="active">Capturados</button>
 </mat-toolbar>
 
-<button mat-raised-button color="primary" (click)="loadPokemon()" [disabled]="loaded | async">Carregar
+<button mat-raised-button color="accent" (click)="loadPokemon()" [disabled]="loaded | async">Carregar
     pokemons</button>
 <router-outlet></router-outlet>
