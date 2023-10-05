@@ -16,6 +16,8 @@ import { PokemonEffects } from '../shared/store/pokemon.effects';
 import { materialComponents } from './material-modules';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokedialogComponent } from './pokedialog/pokedialog.component';
+import { BuscaComponent } from './busca/busca.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PoketextComponent } from './poketext/poketext.component';
 
 @NgModule({
@@ -25,12 +27,14 @@ import { PoketextComponent } from './poketext/poketext.component';
     PokemonComponent,
     CapturadosComponent,
     PokedialogComponent,
+    BuscaComponent,
     PoketextComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot({ pokemon: pokemonReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
