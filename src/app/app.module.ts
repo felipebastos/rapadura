@@ -16,6 +16,7 @@ import { PokemonEffects } from '../shared/store/pokemon.effects';
 import { materialComponents } from './material-modules';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokedialogComponent } from './pokedialog/pokedialog.component';
+import { PoketextComponent } from './poketext/poketext.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PokedialogComponent } from './pokedialog/pokedialog.component';
     PokemonComponent,
     CapturadosComponent,
     PokedialogComponent,
+    PoketextComponent,
   ],
   imports: [
     BrowserModule,
